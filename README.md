@@ -26,13 +26,6 @@ Export Supervisely videos project. You can learn more about format and its struc
 
 Application key points:
 - Download annotations in `.json` and `.stl` formats
-- Download volumes data in `.nrrd` format
-- Convert closed mesh surfaces (`.stl`) to 3d masks (`.nrrd`)
-- Save 3d masks for every object (instance segmentation) in `.nrrd` format
-- Instance segmentation masks are duplicated with human readable file names for convenience
-- Save all objects masks as single mask (semantic segmentation) in `.nrrd` format
-- Generate `class2idx.json` for semantic segmentation, e.g `{"lung": 1, "brain": 2}`
-- All 3d masks (.nrrd) are made for **compatibility with other popular medical viewers**. After download you can open volume and masks in specialised software like [MITK](http://www.mitk.org/) and [3D Slicer](https://www.slicer.org/)
 
 
 # How To Run 
