@@ -3,9 +3,9 @@ import supervisely as sly
 import globals as g
 
 
-@g.my_app.callback("export-videos-in-supervisely-format")
+@g.my_app.callback("export-videos-project-in-supervisely-format")
 @sly.timeit
-def export_videos_in_supervisely_format(api: sly.Api, task_id, context, state, app_logger):
+def export_videos_project_in_supervisely_format(api: sly.Api, task_id, context, state, app_logger):
     project = api.project.get_info_by_id(g.PROJECT_ID)
     project_name = project.name
 
@@ -45,7 +45,7 @@ def main():
         "WORKSPACE_ID": g.WORKSPACE_ID,
         "modal.state.slyProjectId": g.PROJECT_ID
     })
-    g.my_app.run(initial_events=[{"command": "export-videos-in-supervisely-format"}])
+    g.my_app.run(initial_events=[{"command": "export-videos-project-in-supervisely-format"}])
 
 
 if __name__ == '__main__':
