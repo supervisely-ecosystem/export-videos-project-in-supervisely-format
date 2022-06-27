@@ -1,5 +1,5 @@
 {
-  "name": "Export Videos Project in Supervisely Format",
+  "name": "Export Videos Project in Supervisely format",
   "type": "app",
   "categories": [
     "videos",
@@ -14,7 +14,7 @@
   "task_location": "workspace_tasks",
   "isolate": true,
   "headless": true,
-  "icon": "",
+  "icon": "https://user-images.githubusercontent.com/48913536/175979192-3b62a77c-15ac-4970-8767-e75c5864dd7d.png",
   "icon_background": "#FFFFFF",
   "context_menu": {
     "target": [
@@ -22,5 +22,5 @@
     ],
     "context_root": "Download as"
   },
-  "poster": ""
+  "poster": "https://user-images.githubusercontent.com/48913536/175979200-af788035-43f6-47dd-a745-753bc7e729f4.png"
 }
