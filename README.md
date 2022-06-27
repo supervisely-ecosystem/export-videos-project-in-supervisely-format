@@ -21,7 +21,7 @@
 
 # Overview
 
-Export videos project in Supervisely format. It is possible to download both images and annotations or only annotations. You can learn more about format and its structure by reading [documentation](https://docs.supervise.ly/data-organization/00_ann_format_navi/06_supervisely_format_videos).
+Export videos project in Supervisely format. It is possible to download both videos and annotations or only annotations. You can learn more about format and its structure by reading [documentation](https://docs.supervise.ly/data-organization/00_ann_format_navi/06_supervisely_format_videos).
 
 
 # How To Run 
