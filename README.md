@@ -1,7 +1,7 @@
 <div align="center" markdown>
 <img src="">
 
-# Download Videos Project in Supervisely Format
+# Export Videos Project in Supervisely Format
 
 <p align="center">
   <a href="#Overview">Overview</a>
