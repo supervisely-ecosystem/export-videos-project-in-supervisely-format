@@ -1,5 +1,5 @@
 {
-  "name": "Export Videos Project in Supervisely format",
+  "name": "Export videos project in Supervisely format",
   "type": "app",
   "categories": [
     "videos",
