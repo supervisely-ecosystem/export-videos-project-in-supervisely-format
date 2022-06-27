@@ -19,29 +19,23 @@
 
 </div>
 
-## Overview
+# Overview
 
-Export Supervisely videos project. You can learn more about format and its structure by reading [documentation](https://docs.supervise.ly/data-organization/00_ann_format_navi/06_supervisely_format_videos).
-
-
-Application key points:
-- Download annotations in `.json` and `.stl` formats
+Export videos project in Supervisely format. It is possible to download both images and annotations or only annotations. You can learn more about format and its structure by reading [documentation](https://docs.supervise.ly/data-organization/00_ann_format_navi/06_supervisely_format_videos).
 
 
 # How To Run 
 
 1. Add  [Download Videos Project in Supervisely format](https://ecosystem.supervise.ly/apps/download-videos-in-supervisely-format)
 
-<img data-key="sly-module-link" data-module-slug="supervisely-ecosystem/export-volume-project" src="https://i.imgur.com/DnAVFlZ.png" width="450px" style='padding-bottom: 20px'/>
+2. Run app from the ecosystem or context menu of **Video Project** -> `Download via app` -> `Export Videos Project in Supervisely format`
 
-2. Run app from the context menu of **Volume Project** or **Volumes Dataset** -> `Download via app` -> `Export Supervisely volume project in supervisely format`
-
-<img src="https://imgur.com/xGX2kjq.png"/>
+<img src=""/>
 
 3. Define export settings in modal window and press the **Run** button
 
 <div align="center" markdown>
-<img src="https://i.imgur.com/ty0wHZJ.png" width="650"/>
+<img src="" width="650"/>
 </div>
 
 # How To Use 
