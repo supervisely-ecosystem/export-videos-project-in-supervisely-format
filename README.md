@@ -26,7 +26,7 @@ Export videos project in Supervisely format. It is possible to download both ima
 
 # How To Run 
 
-1. Add  [Download Videos Project in Supervisely format](https://ecosystem.supervise.ly/apps/download-videos-in-supervisely-format)
+1. Add  [Download Videos Project in Supervisely format](https://ecosystem.supervise.ly/apps/export-videos-project-in-supervisely-format)
 
 2. Run app from the ecosystem or context menu of **Video Project** -> `Download via app` -> `Export Videos Project in Supervisely format`
 
