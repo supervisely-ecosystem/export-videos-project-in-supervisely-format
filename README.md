@@ -27,13 +27,11 @@ Export videos project in Supervisely format. It is possible to download both vid
 
 # How To Run 
 
-1. Add  [Export Videos Project in Supervisely format](https://ecosystem.supervise.ly/apps/export-videos-project-in-supervisely-format)
-
-2. Run app from the ecosystem or context menu of **Video Project** -> `Download via app` -> `Export Videos Project in Supervisely format`
+1. Run app from the ecosystem or context menu of **Video Project** -> `Download via app` -> `Export Videos Project in Supervisely format`
 
 <img src="https://user-images.githubusercontent.com/48913536/175984626-bea22e06-5275-4364-97f1-5083f8b0c234.png"/>
 
-3. Define export settings in modal window and press the **Run** button
+2. Define export settings in modal window and press the **Run** button
 
 <div align="center" markdown>
 <img src="https://user-images.githubusercontent.com/48913536/175984654-b79f6a06-416c-4142-b363-5f509a959b6d.png" width="650"/>
