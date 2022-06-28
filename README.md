@@ -1,5 +1,5 @@
 <div align="center" markdown>
-<img src="https://user-images.githubusercontent.com/48913536/176118670-35f38744-00e5-4755-81ef-ff40e6a495b1.png">
+<img src="https://user-images.githubusercontent.com/48913536/176125664-baceb648-d04c-4802-afb4-dc244be79cea.jpg">
 
 # Export Videos Project in Supervisely Format
 
