@@ -10,12 +10,14 @@ if sly.is_development():
 
 
 try:
-    os.environ['modal.state.items']
+    os.environ["modal.state.items"]
 except KeyError:
-    sly.logger.warn('The option to download project is not selected, project will be download with items')
+    sly.logger.warn(
+        "The option to download project is not selected, project will be download with items"
+    )
     DOWNLOAD_ITEMS = True
 else:
-    DOWNLOAD_ITEMS = bool(util.strtobool(os.environ['modal.state.items']))
+    DOWNLOAD_ITEMS = bool(util.strtobool(os.environ["modal.state.items"]))
 
 STORAGE_DIR = sly.app.get_data_dir()
 
@@ -27,10 +29,17 @@ class MyExport(sly.app.Export):
 
         project = api.project.get_info_by_id(id=context.project_id)
         project_name = project.name
+        dataset_ids = [context.dataset_id] if context.dataset_id is not None else None
 
         result_dir = os.path.join(STORAGE_DIR, f"{project.id}_{project_name}")
-        sly.download_video_project(api=api, project_id=project.id, dest_dir=result_dir, dataset_ids=None,
-                                download_videos=DOWNLOAD_ITEMS, log_progress=True)
+        sly.download_video_project(
+            api=api,
+            project_id=project.id,
+            dest_dir=result_dir,
+            dataset_ids=dataset_ids,
+            download_videos=DOWNLOAD_ITEMS,
+            log_progress=True,
+        )
 
         archive_name = f"{project.id}_{project_name}.tar.gz"
         result_archive = os.path.join(STORAGE_DIR, archive_name)
@@ -38,6 +47,7 @@ class MyExport(sly.app.Export):
         sly.logger.info("Result directory is archived")
 
         return result_archive
-    
+
+
 app = MyExport()
 app.run()
