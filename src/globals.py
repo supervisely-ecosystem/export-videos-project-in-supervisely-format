@@ -1,35 +1,37 @@
 import os
-import sys
-from pathlib import Path
-import supervisely as sly
-from supervisely.app.v1.app_service import AppService
 from distutils import util
 
-root_source_dir = str(Path(sys.argv[0]).parents[1])
-print(f"App source directory: {root_source_dir}")
-sys.path.append(root_source_dir)
+from dotenv import load_dotenv
+import supervisely as sly
+from supervisely.app.v1.app_service import AppService
+from supervisely.io.fs import mkdir
 
-# only for convenient debug
-# from dotenv import load_dotenv
-# debug_env_path = os.path.join(root_source_dir, "debug.env")
-# secret_debug_env_path = os.path.join(root_source_dir, "secret_debug.env")
-# load_dotenv(debug_env_path)
-# load_dotenv(secret_debug_env_path, override=True)
+if sly.is_development():
+    load_dotenv("local.env")
+    load_dotenv(os.path.expanduser("~/supervisely.env"))
 
 api: sly.Api = sly.Api.from_env()
 my_app = AppService()
 
-TEAM_ID = int(os.environ['context.teamId'])
-WORKSPACE_ID = int(os.environ['context.workspaceId'])
-PROJECT_ID = int(os.environ['modal.state.slyProjectId'])
+TEAM_ID = int(os.environ["context.teamId"])
+WORKSPACE_ID = int(os.environ["context.workspaceId"])
+PROJECT_ID = int(os.environ["modal.state.slyProjectId"])
+DATASET_ID = os.environ.get("modal.state.slyDatasetId", None)
+
+if DATASET_ID is not None:
+    DATASET_ID = [int(DATASET_ID)]
+
+
 TASK_ID = int(os.environ["TASK_ID"])
-RESULT_DIR_NAME = 'Export Videos in Supervisely format'
+RESULT_DIR_NAME = "Export Videos in Supervisely format"
 logger = sly.logger
 
 try:
-    os.environ['modal.state.items']
+    os.environ["modal.state.items"]
 except KeyError:
-    logger.warn('The option to download project is not selected, project will be download with items')
+    logger.warn(
+        "The option to download project is not selected, project will be download with items"
+    )
     DOWNLOAD_ITEMS = True
 else:
-    DOWNLOAD_ITEMS = bool(util.strtobool(os.environ['modal.state.items']))
+    DOWNLOAD_ITEMS = bool(util.strtobool(os.environ["modal.state.items"]))
