@@ -1,0 +1,7 @@
+git+https://github.com/supervisely/supervisely.git@friendly-download-progress-bar-for-video
+
+# formatter
+black
+
+# sorter
+isort
