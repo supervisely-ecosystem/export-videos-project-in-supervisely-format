@@ -1,0 +1,8 @@
+#supervisely==6.72.55
+git+https://github.com/supervisely/supervisely.git@log-OutOfImageBoundsException-details
+
+# formatter
+black
+
+# sorter
+isort
