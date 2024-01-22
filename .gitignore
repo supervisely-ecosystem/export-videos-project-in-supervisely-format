@@ -3,3 +3,5 @@ venv
 secret_debug.env
 src/debug
 src/__pycache__
+supervisely
+.DS_Store
