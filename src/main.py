@@ -3,7 +3,7 @@ import os
 import supervisely as sly
 
 import globals as g
-
+import workflow as w
 
 @g.my_app.callback("export-videos-project-in-supervisely-format")
 @sly.timeit
@@ -15,8 +15,10 @@ def export_videos_project_in_supervisely_format(api: sly.Api, task_id, context, 
     result_archive_path = os.path.join(g.my_app.data_dir, g.RESULT_DIR_NAME)
     if g.DATASET_ID is None:
         archive_name = f"{g.TASK_ID}_{g.PROJECT_ID}_{project_name}.tar.gz"
+        w.workflow_input(api, g.PROJECT_ID, "project")
     else:
         archive_name = f"{g.TASK_ID}_{g.PROJECT_ID}_{g.DATASET_ID[0]}_{project_name}.tar.gz"
+        w.workflow_input(api, g.DATASET_ID[0], "dataset")
     result_archive = os.path.join(g.my_app.data_dir, archive_name)
     remote_archive_path = os.path.join(
         sly.team_files.RECOMMENDED_EXPORT_PATH, f"{g.RESULT_DIR_NAME}/{archive_name}"
@@ -58,7 +60,7 @@ def export_videos_project_in_supervisely_format(api: sly.Api, task_id, context, 
     api.task.set_output_archive(
         task_id, file_info.id, archive_name, file_url=file_info.storage_path
     )
-
+    w.workflow_output(api, file_info)
     g.my_app.stop()
 
 
