@@ -10,18 +10,18 @@
 </p>
 
 
-[![](https://img.shields.io/badge/supervisely-ecosystem-brightgreen)](https://ecosystem.supervise.ly/apps/supervisely-ecosystem/export-videos-project-in-supervisely-format)
-[![](https://img.shields.io/badge/slack-chat-green.svg?logo=slack)](https://supervise.ly/slack)
+[![](https://img.shields.io/badge/supervisely-ecosystem-brightgreen)](https://ecosystem.supervisely.com/apps/supervisely-ecosystem/export-videos-project-in-supervisely-format)
+[![](https://img.shields.io/badge/slack-chat-green.svg?logo=slack)](https://supervisely.com/slack)
 ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/supervisely-ecosystem/export-videos-project-in-supervisely-format)
-[![views](https://app.supervise.ly/img/badges/views/supervisely-ecosystem/export-videos-project-in-supervisely-format.png)](https://supervise.ly)
-[![runs](https://app.supervise.ly/img/badges/runs/supervisely-ecosystem/export-videos-project-in-supervisely-format.png)](https://supervise.ly)
+[![views](https://app.supervisely.com/img/badges/views/supervisely-ecosystem/export-videos-project-in-supervisely-format.png)](https://supervisely.com)
+[![runs](https://app.supervisely.com/img/badges/runs/supervisely-ecosystem/export-videos-project-in-supervisely-format.png)](https://supervisely.com)
 
 
 </div>
 
 # Overview
 
-Export videos project in Supervisely format. It is possible to download both videos and annotations or only annotations. You can learn more about format and its structure by reading [documentation](https://docs.supervise.ly/data-organization/00_ann_format_navi/06_supervisely_format_videos).
+Export videos project in Supervisely format. It is possible to download both videos and annotations or only annotations. You can learn more about format and its structure by reading [documentation](https://docs.supervisely.com/data-organization/00_ann_format_navi/06_supervisely_format_videos).
 
 
 # How To Run 
