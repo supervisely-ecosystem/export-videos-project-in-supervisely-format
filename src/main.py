@@ -1,9 +1,11 @@
 import os
 
 import supervisely as sly
+from supervisely.project.download import download_async_or_sync
 
 import globals as g
 import workflow as w
+
 
 @g.my_app.callback("export-videos-project-in-supervisely-format")
 @sly.timeit
@@ -24,7 +26,7 @@ def export_videos_project_in_supervisely_format(api: sly.Api, task_id, context, 
         sly.team_files.RECOMMENDED_EXPORT_PATH, f"{g.RESULT_DIR_NAME}/{archive_name}"
     )
 
-    sly.download_video_project(
+    download_async_or_sync(
         api=api,
         project_id=g.PROJECT_ID,
         dest_dir=result_dir,
