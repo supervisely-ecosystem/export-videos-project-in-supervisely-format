@@ -13,8 +13,8 @@ if sly.is_development():
 api: sly.Api = sly.Api.from_env()
 my_app = AppService()
 
-TEAM_ID = int(os.environ["TEAM_ID"])
-WORKSPACE_ID = int(os.environ["WORKSPACE_ID"])
+TEAM_ID = int(os.environ["context.teamId"])
+WORKSPACE_ID = int(os.environ["context.workspaceId"])
 PROJECT_ID = int(os.environ["modal.state.slyProjectId"])
 DATASET_ID = os.environ.get("modal.state.slyDatasetId", None)
 
