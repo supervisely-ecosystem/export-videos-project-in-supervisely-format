@@ -1,24 +1,24 @@
 {
-  "name": "Export videos project in Supervisely format",
-  "type": "app",
-  "categories": ["videos", "export"],
-  "description": "Export videos project and prepares downloadable tar archive",
-  "docker_image": "supervisely/import-export:6.73.158",
-  "instance_version": "6.10.0",
-  "main_script": "src/main.py",
-  "modal_template": "src/modal.html",
-  "modal_template_state": {
-    "items": "True"
-  },
-  "task_location": "workspace_tasks",
-  "isolate": true,
-  "headless": true,
-  "icon": "https://user-images.githubusercontent.com/48913536/175979192-3b62a77c-15ac-4970-8767-e75c5864dd7d.png",
-  "icon_cover": true,
-  "icon_background": "#FFFFFF",
-  "context_menu": {
-    "target": ["videos_project", "videos_dataset"],
-    "context_root": "Download as"
-  },
-  "poster": "https://user-images.githubusercontent.com/48245050/182545646-8af0b01f-d196-457f-a506-1cd2e0497f04.png"
+	"name": "Export videos project in Supervisely format",
+	"type": "app",
+	"categories": ["videos", "export"],
+	"description": "Export videos project and prepares downloadable tar archive",
+	"docker_image": "supervisely/import-export:6.73.259",
+	"instance_version": "6.12.12",
+	"main_script": "src/main.py",
+	"modal_template": "src/modal.html",
+	"modal_template_state": {
+		"items": "True"
+	},
+	"task_location": "workspace_tasks",
+	"isolate": true,
+	"headless": true,
+	"icon": "https://user-images.githubusercontent.com/48913536/175979192-3b62a77c-15ac-4970-8767-e75c5864dd7d.png",
+	"icon_cover": true,
+	"icon_background": "#FFFFFF",
+	"context_menu": {
+		"target": ["videos_project", "videos_dataset"],
+		"context_root": "Download as"
+	},
+	"poster": "https://user-images.githubusercontent.com/48245050/182545646-8af0b01f-d196-457f-a506-1cd2e0497f04.png"
 }
