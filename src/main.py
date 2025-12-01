@@ -3,7 +3,7 @@ import os
 import supervisely as sly
 from supervisely.project.download import download_async_or_sync
 from supervisely.project.project_settings import LabelingInterface
-from supervisely.io.fs import mkdir
+from supervisely.io.fs import mkdir, silent_remove, remove_dir
 from supervisely.io.json import load_json_file, dump_json_file
 
 import globals as g
@@ -29,9 +29,15 @@ def _create_metadata_files(project_dir: str, logger):
                     video_name = video_info_file[:-5]
                     metadata_file = os.path.join(metadata_dir, f"{video_name}.meta.json")
                     dump_json_file(video_meta, metadata_file, indent=4)
+                    silent_remove(video_info_path)
                 except Exception as e:
                     logger.warning(f"Failed to process {video_info_file}: {e}")
             logger.info(f"Created metadata files in: {metadata_dir}")
+    
+    sly_project = sly.VideoProject(project_dir, sly.OpenMode.READ)
+    for dataset in sly_project.datasets:
+        remove_dir(os.path.join(dataset.directory, "video_info"))
+
 
 
 @g.my_app.callback("export-videos-project-in-supervisely-format")
