@@ -1,7 +1,1 @@
-supervisely==6.73.312
-
-# formatter
-black
-
-# sorter
-isort
+supervisely==6.73.480

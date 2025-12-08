@@ -8,7 +8,8 @@
   "main_script": "src/main.py",
   "modal_template": "src/modal.html",
   "modal_template_state": {
-    "items": "True"
+    "items": "True",
+    "max_parallel_video_downloads": 5
   },
   "task_location": "workspace_tasks",
   "isolate": true,

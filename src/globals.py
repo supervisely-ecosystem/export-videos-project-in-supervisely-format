@@ -6,6 +6,8 @@ import supervisely as sly
 from supervisely.app.v1.app_service import AppService
 from supervisely.io.fs import mkdir
 
+mkdir("debug", True)
+
 if sly.is_development():
     load_dotenv("local.env")
     load_dotenv(os.path.expanduser("~/supervisely.env"))
@@ -35,3 +37,5 @@ except KeyError:
     DOWNLOAD_ITEMS = True
 else:
     DOWNLOAD_ITEMS = bool(util.strtobool(os.environ["modal.state.items"]))
+
+MAX_PARALLEL_VIDEO_DOWNLOADS = int(os.environ.get("modal.state.max_parallel_video_downloads", 5))

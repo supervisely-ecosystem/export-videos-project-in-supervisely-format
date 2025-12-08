@@ -12,5 +12,11 @@
                       style="margin-left: 0;">Download only annotations
             </el-radio>
         </div>
+        <div>
+          <sly-field title="Maximum number of concurrent video downloads"
+                     description="Higher values may lead to higher memory usage.">
+            <el-input-number size="small" v-model="state.max_parallel_video_downloads" :min="1" :max="10"></el-input-number>
+          </sly-field>
+        </div>
     </sly-field>
 </div>

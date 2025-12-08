@@ -71,7 +71,7 @@ def export_videos_project_in_supervisely_format(api: sly.Api, task_id, context, 
         download_videos=g.DOWNLOAD_ITEMS,
         save_video_info=is_multiview,
         log_progress=True,
-        semaphore=5,
+        semaphore=g.MAX_PARALLEL_VIDEO_DOWNLOADS,
     )
     
     if is_multiview:
