@@ -1,4 +1,5 @@
 import os
+import asyncio
 
 import supervisely as sly
 from supervisely.project.download import download_async_or_sync
@@ -71,6 +72,7 @@ def export_videos_project_in_supervisely_format(api: sly.Api, task_id, context, 
         download_videos=g.DOWNLOAD_ITEMS,
         save_video_info=is_multiview,
         log_progress=True,
+        semaphore=asyncio.Semaphore(5),
     )
     
     if is_multiview:
