@@ -13,29 +13,16 @@ if sly.is_development():
     load_dotenv(os.path.expanduser("~/supervisely.env"))
 
 api: sly.Api = sly.Api.from_env()
-my_app = AppService()
+app_data = sly.app.get_data_dir()
+sly.fs.clean_dir(app_data)
 
-TEAM_ID = int(os.environ["context.teamId"])
-WORKSPACE_ID = int(os.environ["context.workspaceId"])
-PROJECT_ID = int(os.environ["modal.state.slyProjectId"])
-DATASET_ID = os.environ.get("modal.state.slyDatasetId", None)
+task_id = sly.env.task_id()
+team_id = sly.env.team_id()
+workspace_id = sly.env.workspace_id()
+project_id = sly.env.project_id()
+dataset_id = sly.env.dataset_id(raise_not_found=False)
 
-if DATASET_ID is not None:
-    DATASET_ID = [int(DATASET_ID)]
-
-
-TASK_ID = int(os.environ["TASK_ID"])
+# App settings
 RESULT_DIR_NAME = "Export Videos in Supervisely format"
-logger = sly.logger
-
-try:
-    os.environ["modal.state.items"]
-except KeyError:
-    logger.warn(
-        "The option to download project is not selected, project will be download with items"
-    )
-    DOWNLOAD_ITEMS = True
-else:
-    DOWNLOAD_ITEMS = bool(util.strtobool(os.environ["modal.state.items"]))
-
+DOWNLOAD_ITEMS = bool(util.strtobool(os.environ.get("modal.state.items", "True")))
 MAX_PARALLEL_VIDEO_DOWNLOADS = int(os.environ.get("modal.state.max_parallel_video_downloads", 5))
