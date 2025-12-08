@@ -3,12 +3,13 @@
   "type": "app",
   "categories": ["videos", "export"],
   "description": "Export videos project and prepares downloadable tar archive",
-  "docker_image": "supervisely/import-export:6.73.450",
+  "docker_image": "supervisely/import-export:6.73.480",
   "instance_version": "6.15.2",
   "main_script": "src/main.py",
   "modal_template": "src/modal.html",
   "modal_template_state": {
-    "items": "True"
+    "items": "True",
+    "max_parallel_video_downloads": 5
   },
   "task_location": "workspace_tasks",
   "isolate": true,
