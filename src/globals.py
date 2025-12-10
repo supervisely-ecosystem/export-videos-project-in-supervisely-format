@@ -21,6 +21,8 @@ team_id = sly.env.team_id()
 workspace_id = sly.env.workspace_id()
 project_id = sly.env.project_id()
 dataset_id = sly.env.dataset_id(raise_not_found=False)
+if dataset_id is not None:
+    dataset_id = [dataset_id]
 
 # App settings
 RESULT_DIR_NAME = "Export Videos in Supervisely format"
