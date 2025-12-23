@@ -2,9 +2,12 @@
   "version": "2.0.0",
   "name": "Export videos project in Supervisely format",
   "type": "app",
-  "categories": ["videos", "export"],
+  "categories": [
+    "videos",
+    "export"
+  ],
   "description": "Export videos project and prepares downloadable tar archive",
-  "docker_image": "supervisely/import-export:6.73.483",
+  "docker_image": "supervisely/import-export:6.73.486",
   "instance_version": "6.15.35",
   "main_script": "src/main.py",
   "modal_template": "src/modal.html",
@@ -19,7 +22,10 @@
   "icon_cover": true,
   "icon_background": "#FFFFFF",
   "context_menu": {
-    "target": ["videos_project", "videos_dataset"],
+    "target": [
+      "videos_project",
+      "videos_dataset"
+    ],
     "context_root": "Download as"
   },
   "poster": "https://user-images.githubusercontent.com/48245050/182545646-8af0b01f-d196-457f-a506-1cd2e0497f04.png"
