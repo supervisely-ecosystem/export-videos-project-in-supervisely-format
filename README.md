@@ -23,6 +23,10 @@
 
 Export videos project in Supervisely format. It is possible to download both videos and annotations or only annotations. You can learn more about format and its structure by reading [documentation](https://docs.supervisely.com/data-organization/00_ann_format_navi/06_supervisely_format_videos). This app also supports multiview video projects.
 
+# Change Log
+
+**v1.4.5** – Added option to split large archives into several parts for easier downloading. User can specify the maximum size of each part in GB.
+
 
 # How To Run 
 
