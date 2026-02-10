@@ -1,22 +1,33 @@
 {
-	"python.defaultInterpreterPath": ".venv/bin/python",
-	"files.exclude": {
-		"**/__pycache__": true,
-		".venv": true
-	},
-	"black-formatter.args": ["--line-length", "100"],
-	"[python]": {
-		"editor.defaultFormatter": "ms-python.black-formatter"
-	},
-	"editor.formatOnSave": true,
-	"editor.formatOnPaste": false,
-	"editor.formatOnType": true,
-	"[html]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"[json]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode",
-		"editor.insertSpaces": false,
-		"editor.tabSize": 4
-	}
+  "python.defaultInterpreterPath": ".venv/bin/python",
+  "files.exclude": {
+    "**/__pycache__": true,
+    ".venv": true
+  },
+  "black-formatter.args": ["--line-length", "100"],
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    }
+  },
+  "isort.args": ["--profile", "black"],
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": false,
+  "editor.formatOnType": true,
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.insertSpaces": false,
+    "editor.tabSize": 4
+  },
+  "python-envs.defaultEnvManager": "ms-python.python:venv",
+  "python-envs.pythonProjects": [],
+  "debug.inlineValues": "off"
 }

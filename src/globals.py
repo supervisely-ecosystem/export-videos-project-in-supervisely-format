@@ -28,3 +28,8 @@ if dataset_id is not None:
 RESULT_DIR_NAME = "Export Videos in Supervisely format"
 DOWNLOAD_ITEMS = bool(util.strtobool(os.environ.get("modal.state.items", "True")))
 MAX_PARALLEL_VIDEO_DOWNLOADS = int(os.environ.get("modal.state.max_parallel_video_downloads", 5))
+
+# Optional setting to split large archives into parts
+SPLIT_RESULT = bool(util.strtobool(os.environ.get("modal.state.split_result", "False")))
+SPLIT_SIZE_GB = int(os.environ.get("modal.state.split_size", 5)) if SPLIT_RESULT else None
+SPLIT_SIZE = SPLIT_SIZE_GB * (1024 ** 3) if SPLIT_SIZE_GB else None
