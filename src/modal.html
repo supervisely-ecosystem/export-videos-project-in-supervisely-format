@@ -1,30 +1,53 @@
 <div>
-    <sly-field title="Download videos"
-               description="Download project with videos or only annotations">
-        <div class="fflex" style="flex-direction: column; align-items: flex-start">
-            <el-radio class="radio"
-                      v-model="state.items"
-                      label="True">Download videos and annotations
-            </el-radio>
-            <el-radio class="radio"
-                      v-model="state.items"
-                      label="False"
-                      style="margin-left: 0;">Download only annotations
-            </el-radio>
+  <sly-field
+    title="Download videos"
+    description="Download project with videos or only annotations"
+  >
+    <div class="fflex" style="flex-direction: column; align-items: flex-start">
+      <el-radio class="radio" v-model="state.items" label="True"
+        >Download videos and annotations
+      </el-radio>
+      <el-radio
+        class="radio"
+        v-model="state.items"
+        label="False"
+        style="margin-left: 0"
+        >Download only annotations
+      </el-radio>
+    </div>
+    <div>
+      <sly-field
+        title="Maximum number of concurrent video downloads"
+        description="Higher values may lead to higher memory usage."
+      >
+        <el-input-number
+          size="small"
+          v-model="state.max_parallel_video_downloads"
+          :min="1"
+          :max="10"
+        ></el-input-number>
+      </sly-field>
+    </div>
+    <div>
+      <sly-field
+        title="Split large archives"
+        description="If enabled, the resulting archive will be split into parts for easier downloading."
+      >
+        <el-checkbox v-model="state.split_result">Enable</el-checkbox>
+        <div v-if="state.split_result" style="display: flex; align-items: center; margin-top: 10px">
+          <span>Split size: </span>
+          <el-input-number
+            size="small"
+            v-model="state.split_size"
+            :min="1"
+            :max="20"
+            :disabled="!state.split_result"
+            style="margin: 0 5px"
+          >
+          </el-input-number>
+          <span>GB</span>
         </div>
-        <div>
-          <sly-field title="Maximum number of concurrent video downloads"
-                     description="Higher values may lead to higher memory usage.">
-            <el-input-number size="small" v-model="state.max_parallel_video_downloads" :min="1" :max="10"></el-input-number>
-          </sly-field>
-        </div>
-        <div>
-          <sly-field title="Split large archives"
-                     description="If enabled, the resulting archive will be split into parts for easier downloading.">
-            <el-checkbox v-model="state.split_result">Enable</el-checkbox>
-            <el-input-number v-if="state.split_result" size="small" v-model="state.split_size" :min="1" :max="20" :disabled="!state.split_result" style="margin-left: 10px;">
-              <template #append>GB</template>
-            </el-input-number>
-          </sly-field>
-    </sly-field>
+      </sly-field>
+    </div>
+  </sly-field>
 </div>
