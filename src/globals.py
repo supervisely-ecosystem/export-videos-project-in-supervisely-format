@@ -1,9 +1,7 @@
 import os
-from distutils import util
 
-from dotenv import load_dotenv
 import supervisely as sly
-from supervisely.app.v1.app_service import AppService
+from dotenv import load_dotenv
 from supervisely.io.fs import mkdir
 
 mkdir("debug", True)
@@ -24,12 +22,24 @@ dataset_id = sly.env.dataset_id(raise_not_found=False)
 if dataset_id is not None:
     dataset_id = [dataset_id]
 
+
+
+def to_bool(value) -> bool:
+    """Parse a modal.state flag ("True"/"False", any case); distutils is gone in Python 3.12+."""
+    text = str(value).strip().lower()
+    if text in ("1", "true", "yes", "on", "y", "t"):
+        return True
+    if text in ("0", "false", "no", "off", "n", "f"):
+        return False
+    raise ValueError(f"Expected a boolean, got {value!r}")
+
+
 # App settings
 RESULT_DIR_NAME = "Export Videos in Supervisely format"
-DOWNLOAD_ITEMS = bool(util.strtobool(os.environ.get("modal.state.items", "True")))
+DOWNLOAD_ITEMS = to_bool(os.environ.get("modal.state.items", "True"))
 MAX_PARALLEL_VIDEO_DOWNLOADS = int(os.environ.get("modal.state.max_parallel_video_downloads", 5))
 
 # Optional setting to split large archives into parts
-SPLIT_RESULT = bool(util.strtobool(os.environ.get("modal.state.split_result", "False")))
+SPLIT_RESULT = to_bool(os.environ.get("modal.state.split_result", "False"))
 SPLIT_SIZE_GB = int(os.environ.get("modal.state.split_size", 5)) if SPLIT_RESULT else None
 SPLIT_SIZE = SPLIT_SIZE_GB * (1024 ** 3) if SPLIT_SIZE_GB else None

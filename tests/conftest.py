@@ -81,7 +81,7 @@ class FakeFileApi:
         )
 
     async def upload_bulk_async(self, team_id, src_paths, dst_paths, progress_cb=None, **kw):
-        for src, dst in zip(src_paths, dst_paths):
+        for src, dst in zip(src_paths, dst_paths, strict=False):
             self.uploaded.append((team_id, src, dst))
 
     def get_info_by_path(self, team_id, path):
@@ -132,6 +132,11 @@ def fake_project_download(calls):
             with open(os.path.join(ds_dir, "video", name), "wb") as f:
                 f.write(b"\0" * 16)
             sly.json.dump_json_file({}, os.path.join(ds_dir, "ann", f"{name}.json"))
+            if kwargs.get("save_video_info"):
+                os.makedirs(os.path.join(ds_dir, "video_info"), exist_ok=True)
+                info = {"name": name, "meta": {"camera": name}}
+                sly.json.dump_json_file(info, os.path.join(ds_dir, "video_info", f"{name}.json"))
+        sly.json.dump_json_file({}, os.path.join(dest_dir, "key_id_map.json"))
 
     return _download
 

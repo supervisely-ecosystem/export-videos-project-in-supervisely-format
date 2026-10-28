@@ -7,7 +7,7 @@
     "export"
   ],
   "description": "Export videos project and prepares downloadable tar archive",
-  "docker_image": "supervisely/base-py-sdk-hardened:6.74.14",
+  "docker_image": "supervisely/base-py-sdk-hardened:6.74.28",
   "instance_version": "6.17.8",
   "main_script": "src/main.py",
   "modal_template": "src/modal.html",

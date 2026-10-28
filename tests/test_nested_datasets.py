@@ -1,6 +1,5 @@
 """Launched from a dataset, the export must include the datasets nested in it."""
 
-import os
 
 from conftest import make_api, tar_members
 
