@@ -63,3 +63,12 @@ def test_multiview_writes_metadata_files_main_import_reads(run_app):
     assert "Videos/parent/datasets/child/metadata/child.mp4.meta.json" in members
     assert "Videos/other/metadata/other.mp4.meta.json" in members
     assert not any("/video_info/" in m for m in members)
+
+
+def test_split_result_smaller_than_part_size_uploads_one_archive(run_app):
+    """The SDK returns None when the archive fits into one part; that is not a failure."""
+    api = make_api()
+    run_app(api, **{"modal.state.split_result": "true", "modal.state.split_size": "1"})
+    remotes = [dst for _, _, dst in api.file.uploaded]
+    assert len(remotes) == 1 and remotes[0].endswith(".tar")
+    assert api.recorded.outputs[0][0] == "archive"

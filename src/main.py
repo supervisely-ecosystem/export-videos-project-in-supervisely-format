@@ -48,8 +48,9 @@ def main():
 
     if is_multiview:
         u.create_metadata_files(result_dir)
-    if not g.SPLIT_RESULT:
-        sly.fs.archive_directory(result_archive_path, result_archive)
+    # None when no split is requested or the archive fits into one part
+    parts_paths = sly.fs.archive_directory(result_archive_path, result_archive, split=g.SPLIT_SIZE)
+    if not parts_paths:
         sly.logger.info("Result directory is archived")
         remote_archive_path = Path(base_export_path) / g.RESULT_DIR_NAME / archive_name
         total_size = sly.fs.get_file_size(result_archive)
@@ -68,9 +69,6 @@ def main():
         )
         w.workflow_output(g.api, g.team_id, file_info)
     else:
-        parts_paths = sly.fs.archive_directory(result_archive_path, result_archive, split=g.SPLIT_SIZE)
-        if not parts_paths:
-            raise RuntimeError("Failed to split the archive into parts.")
         sly.logger.info(f"Result directory is archived into {len(parts_paths)} parts.")
 
         remote_path = Path(base_export_path) / g.RESULT_DIR_NAME / archive_name

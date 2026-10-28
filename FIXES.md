@@ -66,3 +66,10 @@ Compare branch vs published (v1.4.7) archives: member list + SHA-256 (videos) an
 | multi-view | `… --project 6938 --version ecosystem-fixes-2026-10 --branch` | `ds0/metadata/*.meta.json`, no `video_info/`; identical to published | same without `--version/--branch` |
 | split | `… --project 143 --state split_result=true --state split_size=1 --version ecosystem-fixes-2026-10 --branch` | task output is the folder `…/<task>_143_Videos example/`, 1 part (small project) | same without `--version/--branch` |
 | nested from a dataset (setup needed) | create "agents export-videos nested" in ws 733 with datasets `parent` → `child` → `grandchild`, copy one video of project 143 into each; `… --project <id> --dataset <parent id> --version ecosystem-fixes-2026-10 --branch` | 3 videos under `parent/`, `parent/datasets/child/`, `…/datasets/grandchild/` | published: only `parent`'s video |
+
+## Dev check 2026-10-28: split of a small project
+
+"Split archive" failed with `RuntimeError: Failed to split the archive into parts.` whenever the archive was
+smaller than the part size (whole GB, minimum 1). Published v1.4.7 fails the same way (dev tasks 63009/63013).
+The SDK's `archive_directory` returns None when the archive fits into one part, and the app treated that as an
+error. Now one archive is uploaded, as without the split option.
