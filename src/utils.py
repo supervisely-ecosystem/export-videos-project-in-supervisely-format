@@ -3,6 +3,11 @@ import supervisely as sly
 from supervisely.io.fs import mkdir, silent_remove, remove_dir
 from supervisely.io.json import load_json_file, dump_json_file
 
+def get_dataset_ids(api: sly.Api, project_id: int, dataset_id: int):
+    """The selected dataset and every dataset nested in it (the SDK download takes exact ids)."""
+    return [dataset_id] + [ds.id for ds in api.dataset.get_nested(project_id, dataset_id)]
+
+
 def create_metadata_files(project_dir: str):
     """Create metadata files for multi-view video projects."""
     sly.logger.info("Creating metadata files for multi-view project...")

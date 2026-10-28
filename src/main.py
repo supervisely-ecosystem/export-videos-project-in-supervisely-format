@@ -27,11 +27,16 @@ else:
 result_archive = os.path.join(g.app_data, archive_name)
 base_export_path = sly.team_files.RECOMMENDED_EXPORT_PATH
 
+dataset_ids = None
+if g.dataset_id is not None:
+    dataset_ids = u.get_dataset_ids(g.api, g.project_id, g.dataset_id[0])
+    sly.logger.info(f"Exporting dataset {g.dataset_id[0]} and {len(dataset_ids) - 1} nested dataset(s)")
+
 download_async_or_sync(
     api=g.api,
     project_id=g.project_id,
     dest_dir=result_dir,
-    dataset_ids=g.dataset_id,
+    dataset_ids=dataset_ids,
     download_videos=g.DOWNLOAD_ITEMS,
     save_video_info=is_multiview,
     log_progress=True,
